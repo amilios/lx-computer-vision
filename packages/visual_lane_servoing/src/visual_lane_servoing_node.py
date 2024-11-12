@@ -84,6 +84,9 @@ class LaneServoingNode(DTROS):
         kinematics_calib = self.read_params_from_calibration_file()
         self.omega_max = kinematics_calib.get("omega_max", 6.0)
 
+        rospy.set_param("/steer_matrix_left_coeff", -0.0006)
+        rospy.set_param("/steer_matrix_right_coeff", 0.0004)
+
         self.loginfo("Initialized!")
 
 
